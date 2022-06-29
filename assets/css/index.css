@@ -52,23 +52,23 @@ h2 {
   margin: 0 auto;
   max-width: 1080px; }
 
-/*Helpers*/
-.flex-row {
-  display: flex;
-  flex-direction: row; }
-
-.flex-column {
-  display: flex;
-  flex-direction: column; }
-
-.container {
-  margin: 0 auto;
-  max-width: 1080px; }
-
 /*HEADER*/
 header {
-  background-color: var(--primary);
- border-bottom: 2px solid var(--secondary); }
+ display: flex;
+ flex-direction: column;
+ background-color: var(--primary);
+ border-bottom: 2px solid var(--secondary); 
+ width: 100%;
+}
+
+.carrito{
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+   
+} 
+
 
 .navbar {
   background-color: var(--primary);
@@ -107,6 +107,8 @@ header {
     .menu__item:hover .sub-menu .sub-menu__link:hover {
       background-color: #f7e0e3;
       transition: all .2s ease-in-out; }
+    
+       
 
 /*media queries*/
 @media screen and (max-width: 670px) {
@@ -126,6 +128,9 @@ header {
     .menu .menu__item {
       border: 2px solid var(--primary);
       padding: 5px; } }
+
+    
+
 
 /*Footer*/
 .footer {
@@ -204,6 +209,23 @@ header {
     .present-products .products-features {
       min-width: 60%; } }
 
+      #boton-carrito {
+        border: none;
+        color: var(--font-secondary);
+        font-size: 2em;
+        background-color: var(--primary);
+        border-radius: 50%;
+        padding: 10px 20px;
+        transition: all 0.3s;
+      }
+      #boton-carrito:hover {
+        cursor: pointer;
+        color: var(--color-font-second);
+        
+      }
+      #boton-carrito:focus {
+        outline: none;
+      }
 .btn {
   background-color: var(--secondary);
   color: var(--font-primary);
