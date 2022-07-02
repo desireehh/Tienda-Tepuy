@@ -55,7 +55,8 @@ h2 {
 /*HEADER*/
 header {
  display: flex;
- flex-direction: column;
+ flex-direction: row;
+ justify-content: space-between;
  background-color: var(--primary);
  border-bottom: 2px solid var(--secondary); 
  width: 100%;
@@ -63,8 +64,7 @@ header {
 
 .carrito{
   display: flex;
-  justify-content: end;
-  align-items: center;
+  align-items: end;
 
    
 } 
@@ -200,6 +200,7 @@ header {
         color: var(--color-font-second);
         float: right; }
 
+
 /*Media queries*/
 @media screen and (max-width: 790px) {
   .present-products {
@@ -209,23 +210,127 @@ header {
     .present-products .products-features {
       min-width: 60%; } }
 
-      #boton-carrito {
-        border: none;
-        color: var(--font-secondary);
-        font-size: 2em;
-        background-color: var(--primary);
-        border-radius: 50%;
-        padding: 10px 20px;
-        transition: all 0.3s;
-      }
-      #boton-carrito:hover {
-        cursor: pointer;
-        color: var(--color-font-second);
+/*carrito y modal*/
+#boton-carrito {
+  display: flex;
+  flex-direction: row;
+  border: none;
+  font-size: 2em;
+  background-color: var(--primary);
+  border-radius: 50%;
+  padding: 10px 50px 10px 0px;
+  transition: all 0.3s;
+  color: var(--color-font-second);
+
+}
+
+#boton-carrito:hover {
+  cursor: pointer;
+  color: var(--color-font);
         
-      }
-      #boton-carrito:focus {
-        outline: none;
-      }
+}
+#boton-carrito:focus {
+  outline: none;
+}
+
+#contadorCarrito {
+  padding: 0px 5px 0px 10px;
+  font-family: var(--font-primary);
+}
+
+
+.modal-contenedor {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal-active {
+  opacity: 1;
+  visibility: visible;
+  z-index: 5;
+}
+
+.modal-carrito {
+  position: relative;
+  background-color: var(--primary);
+  border: 1px solid var(--secondary);
+  min-width: 500px;
+  padding: 20px;
+  margin-top: -100%;
+  transition: all 0.5s;
+}
+
+.modal-active .modal-carrito {
+  margin-top: 0;
+}
+
+.modal-carrito h3 {
+  color: var(--color-font-second);
+  padding-bottom: 5px;
+  font-size: 2em;
+}
+.modal-carrito #carritoCerrar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 2em;
+  color: var(--color-font-second);
+  border: none;
+  background-color: var(--primary);
+}
+.modal-carrito #carritoCerrar:hover {
+  cursor: pointer;
+}
+.modal-carrito #carritoCerrar:focus {
+  outline: none;
+}
+.modal-carrito .precioProducto {
+  color: var(--color-font-second);
+  font-size: 2.5em;
+  padding-top: 10px;
+  text-align: end;
+}
+
+.productoEnCarrito {
+  border-left: 5px solid var(--color-font-second);
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  margin: 5px 0;
+  padding: 5px 10px;
+  display: grid;
+  grid-template-columns: 200px 100px 20px;
+  justify-content: space-between;
+  font-size: 1.5em;
+}
+.productoEnCarrito:hover {
+  border-left: 5px solid var(--color-font-second);
+}
+
+.boton-eliminar {
+  background-color: var(--primary);
+  color: var(--font-secondary);
+  border: none;
+  font-size: 20px;
+}
+
+.boton-eliminar:hover {
+  cursor: pointer;
+}
+.boton-eliminar:focus {
+  outline: none;
+}
+
+
+/*contacto*/     
 .btn {
   background-color: var(--secondary);
   color: var(--font-primary);

@@ -5,21 +5,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tepuy Deco and Art - Contacto</title>
-    <meta name="description" content="Contanos como podemos ayudarte">
-    <meta name="keywords" content="contacto, contanos, escribenos, ayuda">
+    <title>Tepuy Deco and Art - productos - mesas</title>
+    <meta name="description" content="Muebles perzonalizados">
+    <meta name="keywords" content="mesas, escritorios, pino, muebles">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;1,100;1,400&family=Rochester&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://kit.fontawesome.com/0167cce4b2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../css/index.css">
 </head>
 
 <body>
-    
-    <header>
-        <nav class="navbar flex-row container">
+    <header class="container">
+        
+        <nav class="navbar flex-row ">
             <div class="logo">
                 <a href="../../index.html"><img src="../image/LOGO.png" alt="Logo de Tepuy.deco"> </a>
             </div>
@@ -42,42 +43,58 @@
                 <li class="menu__item"><a class="menu__link" href="tienda.html">TIENDA</a></li>
             </ul>
         </nav>
-
+        <div class="carrito">
+            <!-- <input id="search" type="text" class="input" placeholder="Buscar producto"> -->
+            <button id="boton-carrito"><i class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span></button>
+        </div>
     </header>
 
-    <main class=" main container">
-
-        <div class="contact flex-row">
-            <section class="contact-img">
-                <img src="../image/contacto.png" alt="mesa">
-            </section>
-            <section class="contact-form">
-                <h2>CONTACTANOS</h2>
-
-                <form action="">
-                    <p>NOMBRE:</p>
-                    <input type="text" class="field" id="firstname">
-
-                    <p>APELLIDO:</p>
-                    <input type="text" class="field" id="lastname">
-
-                    <p>CORREO</p>
-                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
-                    
-
-                    <p>CONTANOS COMO PODEMOS AYUDARTE</p>
-                    <textarea class="field" id="comment"></textarea>
-
-                    <p><input type="submit" class="btn" value="Limpiar"></p>
-
-                    <p><input type="submit" class="btn" value="Enviar"></pclass=>
-                </form>
-            </section>
-
-
+    <main>
+        <div class="presentation-pages">
+            <h2 class="container">PRODUCTOS:</h2 class="container"><br>
+            <!-- <p class="container">MESAS</p> -->
         </div>
+                   
+        <div id="contenedor-productos" class="container products flex-row">
+
+            <!-- <div class="products-present container">
+                <img src="../../assets/image/mesas 1.png" alt="escritorio nordico">
+                <a id="boton" class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">add_shopping_cart</i></a>
+                <div class="description">
+                    <h2>Escritorio Nórdico</h2>
+                    <ul>
+                        <li>Modelo: Nórdico Escandinavo </li>
+                        <li>Medidas: 90cm Largo 70cm Alto 45cm Profundidad</li>
+                        <li>Precio: $8.500</li>
+                    </ul>
+                </div>
+            </div> -->
+          
+        </div>
+        
     </main>
 
+    <div class="modal-contenedor">
+        <div class="modal-carrito">
+            <h3>Tus productos</h3>
+            <button id="carritoCerrar"><i class="fas fa-times-circle"></i></button>
+            <div id="carrito-contenedor">
+                    <!-- <div class="productoEnCarrito">
+                    <p>Producto:</p>
+                    <p>Precio: $1200</p>
+                    <button class="boton-eliminar"><i class="fas fa-trash-alt"></i></button> 
+                 </div>     -->
+            </div>
+            <p class="precioProducto">Precio total: $<span id="precioTotal">0</span></p>
+            <div id="terminar" style="display: flex; justify-content: flex-end;"></div> 
+        </div>
+    </div>
+
+   
+                           
+    <script src="../../js/stock.js"></script>
+    <script src="../../js/modal.js"></script>
+    <script src="../../js/tienda.js"></script>
 
     <footer class="footer">
 
@@ -117,7 +134,7 @@
 
     </footer>
 
-<script src="../../main.js"></script>
+
 
 
 
