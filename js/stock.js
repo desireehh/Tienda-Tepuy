@@ -28,5 +28,5 @@ productosTienda.push(new Producto("Posa Macetas", 7,"Banquito Primaveral", 3600,
 productosTienda.push(new Producto("Posa Macetas", 8,"Banquito Primaveral", 1200,'../../assets/image/posa macetas2.png'))
 
 
-console.log(productosTienda);
+
 

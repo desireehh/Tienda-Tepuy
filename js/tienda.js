@@ -4,21 +4,33 @@ let carritoDeCompras = []
 const contenedorProductos = document.getElementById('contenedor-productos');
 const contenedorCarrito = document.getElementById('carrito-contenedor');
 const contadorCarrito = document.getElementById('contadorCarrito');
+const selecLinea = document.getElementById('selecLinea');
 const precioTotal = document.getElementById('precioTotal');
-const botonTerminar = document.getElementById('terminar')
-const finCompra = document.getElementById('fin-compra')
+const buscador = document.getElementById('search')
+// const finCompra = document.getElementById('fin-compra')
 
 
 
 
+//filtro
 
+ selecLinea.addEventListener('change',()=>{
+ console.log(selecLinea.value)
+ if(selecLinea.value == 'all'){
+    mostrarProductos(productosTienda)
+}else{
+    mostrarProductos(productosTienda.filter(elemento=> elemento.linea == selecLinea.value))
+}
+}
+)
+      
 
 mostrarProductos(productosTienda)
 
 //mostrar producto
-function mostrarProductos(){
+function mostrarProductos(array){
     contenedorProductos.innerHTML = ""
-    productosTienda.forEach(el=> {
+    array.forEach(el=> {
         let div = document.createElement('div')
         div.className = 'products-present'
         div.innerHTML=  `<div class="section-prod container">
@@ -52,8 +64,7 @@ let productoAgregar = productosTienda.find(el=> el.codigo === codigo);
 carritoDeCompras.push(productoAgregar)
 mostrarCarrito(productoAgregar)
 actualizarCarrito()
-const carritoJS= JSON.stringify(carritoDeCompras)
-localStorage.setItem(`carrito`, carritoJS);
+localStorage.setItem('carrito', JSON.stringify(carritoDeCompras));
 
 }
   
@@ -65,11 +76,19 @@ localStorage.setItem(`carrito`, carritoJS);
         div.className = 'productoEnCarrito'
         div.innerHTML= `<p>Producto: ${productoAgregar.nombre}</p>
         <p>Precio: $${productoAgregar.precio}</p>
-        <button id= eliminar ${productoAgregar.id}class="boton-eliminar"><i class="fas fa-trash-alt"></i></button> 
-     </div>`    
+        <button id="eliminar ${productoAgregar.codigo}" class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>` 
+           
     
  contenedorCarrito.appendChild(div)
 
+    let btnEliminar = document.getElementById(`eliminar ${productoAgregar.codigo}`)
+    console.log(btnEliminar) 
+btnEliminar.addEventListener('click',()=>{
+       btnEliminar.parentElement.remove()      
+       carritoDeCompras = carritoDeCompras.filter(el => el.codigo !== productoAgregar.codigo)
+       actualizarCarrito()
+       localStorage.setItem('carrito', JSON.stringify(carritoDeCompras))
+ })
  
 }
  
@@ -78,9 +97,8 @@ localStorage.setItem(`carrito`, carritoJS);
 
  function  actualizarCarrito(){
     contadorCarrito.innerText= carritoDeCompras.length
-    console.log(carritoDeCompras)
     precioTotal.innerText= carritoDeCompras.reduce((acc,el)=> acc+el.precio, 0)
-        console.log(precioTotal)                                                        
+                                                           
  }
  
  //recuperar
@@ -94,11 +112,18 @@ localStorage.setItem(`carrito`, carritoJS);
     actualizarCarrito()
  }
 }
-  
  
  }
  
  
  recuperar()
-       
+
+ //Buscador
+buscador.addEventListener('input',(e)=>{
+    console.log(e.target.value);
+    let buscaBusca = productosTienda.filter(elemento => elemento.nombre.toLowerCase().includes(e.target.value.toLowerCase()))
+    mostrarProductos(buscaBusca)
+})
+
+mostrarProductos(productosTienda)
        

@@ -44,7 +44,7 @@
             </ul>
         </nav>
         <div class="carrito">
-            <!-- <input id="search" type="text" class="input" placeholder="Buscar producto"> -->
+            <input id="search" type="text" class="input" placeholder="Buscar producto">
             <button id="boton-carrito"><i class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span></button>
         </div>
     </header>
@@ -52,7 +52,14 @@
     <main>
         <div class="presentation-pages">
             <h2 class="container">PRODUCTOS:</h2 class="container"><br>
-            <!-- <p class="container">MESAS</p> -->
+            <div class="seleccion">
+                <select id="selecLinea">
+                    <option value="all">Todos</option>
+                    <option value="Repisas">Repisas</option>
+                    <option value="Posa Macetas">Posa Macetas</option>
+                    <option value="Mesas">Mesas</option>
+                </select>
+            </div>
         </div>
                    
         <div id="contenedor-productos" class="container products flex-row">
